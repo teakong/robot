@@ -17,5 +17,5 @@ jobs:
       - uses: ./
         with:
           channelCode: ${{ secrets.CHANNELCODE }}
-          title: "您有一条新的消息请注意查收 ${{ steps.current-time.outputs.formattedTime }}"
+          head: "您有一条新的消息请注意查收 ${{ steps.current-time.outputs.formattedTime }}"
 
