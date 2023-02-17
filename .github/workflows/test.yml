@@ -1,0 +1,21 @@
+name: 'build-test'
+on: # rebuild any PRs and main branch changes
+  push:
+    branches:
+      - main
+      - 'releases/*'
+jobs:
+  test: # make sure the action works on a clean machine without building
+    runs-on: ubuntu-latest
+    steps:
+      - uses: teakong/github-action-yifengchuanhua@v1.0.0
+      - uses: josStorer/get-current-time@v2.0.2
+        id: current-time
+        with:
+          format: YYYYMMDD-HH
+          utcOffset: "+08:00"
+      - uses: ./
+        with:
+          channelCode: ${{ secrets.channelCode }}
+          title: "您有一条新的消息请注意查收 ${{ steps.current-time.outputs.formattedTime }}"
+
