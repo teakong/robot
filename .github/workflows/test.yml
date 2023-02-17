@@ -9,6 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: teakong/github-action-yifengchuanhua@v1.0.0
+        with:
+          channelCode: ${{ secrets.CHANNEL_CODE }}
       - uses: josStorer/get-current-time@v2.0.2
         id: current-time
         with:
@@ -16,6 +18,5 @@ jobs:
           utcOffset: "+08:00"
       - uses: ./
         with:
-          channelCode: ${{ secrets.CHANNEL_CODE }}
           head: "您有一条新的消息请注意查收 ${{ steps.current-time.outputs.formattedTime }}"
 
