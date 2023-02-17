@@ -16,6 +16,6 @@ jobs:
           utcOffset: "+08:00"
       - uses: ./
         with:
-          channelCode: ${{ secrets.channelCode }}
+          channelCode: ${{ secrets.CHANNELCODE }}
           title: "您有一条新的消息请注意查收 ${{ steps.current-time.outputs.formattedTime }}"
 
